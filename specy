@@ -1,0 +1,224 @@
+#!/bin/bash
+
+
+#specy:  an Arch Linux system command line description tool
+
+#Copyright (C) 2014  Max Weis
+
+
+#This program is free software; you can redistribute it and/or
+#modify it under the terms of the GNU General Public License
+#as published by the Free Software Foundation; either version 2
+#of the License, or (at your option) any later version.
+
+#This program is distributed in the hope that it will be useful,
+#but WITHOUT ANY WARRANTY; without even the implied warranty of
+#MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#GNU General Public License for more details.
+
+
+clear
+
+
+#COLOR DEFINITIONS
+intense_blue='\e[0;94m'
+blue='\e[0;34m'
+white='\e[1;37m'
+gray='\e[0;37m'
+dark_gray='\e[1;30m'
+light_blue='\e[1;34m'
+black='\e[0;30m'
+green='\e[0;32m'
+cyan='\e[0;36m'
+red='\e[0;31m'
+purple='\e[0;35m'
+brown='\e[0;33m'
+light_green='\e[1;32m'
+light_cyan='\e[1;36m'
+light_red='\e[1;31m'
+light_purple='\e[1;31m'
+yellow='\e[1;31m'
+no_color='\e[0m'
+
+
+#CONFIG FILE CREATING OR LOADING
+if  [ -f "$HOME/.local/share/specy/config" ]; then
+        gpu=$(sed '1!d' $HOME/.local/share/specy/config)
+
+        #drive=$(sed '2!d' $HOME/.local/share/specy/config)
+
+        editor=$(sed '2!d' $HOME/.local/share/specy/config)
+fi
+
+
+#COMPUTER INFORMATION DEFINITIONS
+user=$(whoami)@$(hostname)
+
+source /etc/os-release
+os=$PRETTY_NAME
+
+kernel=$(uname -r)
+
+timeup=$(uptime -p)
+timeup=${timeup:3}
+
+cpu=$(grep "model name" /proc/cpuinfo | cut -f2 -d: | tail -1)
+cpu=${cpu:1}
+cpu=$(echo $cpu | tr '\n' ' ')
+
+total_ram="$(python ~/.local/share/specy/ram.py -t)"
+used_ram="$(python ~/.local/share/specy/ram.py -u)"
+
+window_manager=$(wmctrl -m | grep Name)
+window_manager=${window_manager:6}
+if [ -z "$window_manager" ]; then
+        window_manager='None (virtual terminal)'
+fi
+
+packages=$(pacman -Q | wc -l)
+
+gpu_text_width=${#gpu}
+cpu_text_width=${#cpu}
+terminal_height=$(tput lines)
+terminal_width=$(tput cols)
+height_limit=24
+
+# determining terminal width from longest strings
+if [ $gpu_text_width -ge  $cpu_text_width ]; then
+        width_limit=$(( $gpu_text_width + 47 ))
+else
+        width_limit=$(( $cpu_text_width + 47 ))
+fi
+
+line1A="User: "
+line1B="$user"
+line2A="OS: "
+line2B="$os"
+line3A="Kernel: "
+line3B="$kernel"
+line4A="CPU: "
+line4B="$cpu"
+line5A="GPU: "
+line5B="$gpu"
+line6A="RAM: "
+line6B="$used_ram / $total_ram"
+line7A="Window Manager: "
+line7B="$window_manager"
+line8A="Packages Installed: "
+line8B="$packages"
+line9A="Text Editor: "
+line9B="$editor"
+
+# arch_logo(primary_color, secondary_color, primary_text_color, secondary_text_color)
+arch_logo(){
+    clear
+    echo
+    echo -e -n "$2"
+    echo -e -n "                   /\                    " 
+    echo
+    echo -e -n "                  /$1##$2\                   " 
+    echo
+    echo -e -n "                 /$1####$2\                  $3$line1A$4$line1B$2" 
+    echo
+    echo -e -n "                /$1######$2\                 $3$line2A$4$line2B$2"  
+    echo
+    echo -e -n "               /$1########$2\                $3$line3A$4$line3B$2"   
+    echo
+    echo -e -n "               \\\\$1#########$2\               $3$line4A$4$line4B$2"  
+    echo
+    echo -e -n "             /\_\\\\$1#########$2\              $3$line5A$4$line5B$2"  
+    echo
+    echo -e -n "            /$1###$2\|$1#########$2\             $3$line6A$4$line6B$2"  
+    echo
+    echo -e -n "           /$1################$2\            $3$line7A$4$line7B$2"  
+    echo
+    echo -e -n "          /$1######$2######$1###$2/\\\\$1#$2\           $3$line8A$4$line8B$2"  
+    echo
+    echo -e -n "         /$1#####$2###    ###$1#$2\ \\\\$1#$2\          $3$line9A$4$line9B$2"  
+    echo
+    echo -e -n "        /$1#####$2##        ##$1##$2\___         "  
+    echo
+    echo -e -n "       /$1#####$2##          ##$1#####$2\        "  
+    echo
+    echo -e -n "      /$1######$2##          ##$1######$2\       "  
+    echo
+    echo -e -n "     /$1######$2####        ####$1######$2\      "  
+    echo
+    echo -e -n "    /$1###$2#####              #####$1###$2\     "  
+    echo
+    echo -e -n "   /$1#$2####                      ####$1#$2\    "  
+    echo
+    echo -e -n "   $2###                            ###   "  
+    echo
+    echo -e -n "  $2##                                ##  " 
+    echo
+    echo -e -n " $2#                                    # " 
+    echo -e  $no_color
+    echo
+}
+
+arch_logo_minimal(){
+    clear
+    echo
+    echo -e -n "$2"
+    echo -e -n "                   /\ " 
+    echo
+    echo -e -n "                  /$1##$2\ " 
+    echo
+    echo -e -n "                 /$1####$2\ " 
+    echo
+    echo -e -n "                /$1######$2\ "  
+    echo
+    echo -e -n "               /$1########$2\ "   
+    echo
+    echo -e -n "               \\\\$1#########$2\ "  
+    echo
+    echo -e -n "             /\_\\\\$1#########$2\ "  
+    echo
+    echo -e -n "            /$1###$2\|$1#########$2\ "  
+    echo
+    echo -e -n "           /$1################$2\ "  
+    echo
+    echo -e -n "          /$1######$2######$1###$2/\\\\$1#$2\ "  
+    echo
+    echo -e -n "         /$1#####$2###    ###$1#$2\ \\\\$1#$2\ "  
+    echo
+    echo -e -n "        /$1#####$2##        ##$1##$2\___"  
+    echo
+    echo -e -n "       /$1#####$2##          ##$1#####$2\ "  
+    echo
+    echo -e -n "      /$1######$2##          ##$1######$2\ "  
+    echo
+    echo -e -n "     /$1######$2####        ####$1######$2\ "  
+    echo
+    echo -e -n "    /$1###$2#####              #####$1###$2\ "  
+    echo
+    echo -e -n "   /$1#$2####                      ####$1#$2\ "  
+    echo
+    echo -e -n "   $2###                            ###"  
+    echo
+    echo -e -n "  $2##                                ##" 
+    echo
+    echo -e -n " $2#                                    #" 
+    echo -e  $no_color
+    echo
+}
+
+if [ $# != 4 ] && [ $# != 0 ]; then
+        echo -e Four colors must be specified or leave defaults\\nOptions are intense_blue, blue, white, gray, dark_grey, light_blue, black, green, cyan, red, purple, brown, light_green, light_cyan, light_red, light_purple, yellow, no_color
+        echo Usage: $0 primary_color secondary_color primary_text_color secondary_text_color
+
+elif [ "$terminal_width" -ge "$width_limit" ] && [ "$terminal_height" -ge "$height_limit" ]; then
+        if [ $# = 4 ]; then
+                arch_logo ${!1} ${!2} ${!3} ${!4} 
+        else
+                arch_logo $blue $light_blue $blue $gray
+        fi
+
+elif [ "$terminal_width" -ge 40 ] && [ "$terminal_height" -ge 23 ]; then
+        if [ $# = 4 ]; then
+                arch_logo_minimal ${!1} ${!2} ${!3} ${!4} 
+        else
+                arch_logo_minimal $blue $light_blue $blue $gray
+        fi
+fi
