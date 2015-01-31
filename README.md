@@ -1,6 +1,6 @@
 #specy
 The dependencies are as follows (excluding standard Unix programs):
-        python (3)
+        python(3),
         wmctrl
 
 PRACTICAL NOTE:  You should run this program when your shell starts.
