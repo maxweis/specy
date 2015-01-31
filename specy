@@ -42,22 +42,21 @@ no_color='\e[0m'
 
 
 #CONFIG FILE CREATING OR LOADING
-if  [ -f "$HOME/.local/share/specy/config" ]; then
+if  [ -a "$HOME/.local/share/specy/config" ]; then
         gpu=$(sed '1!d' $HOME/.local/share/specy/config)
 
         editor=$(sed '2!d' $HOME/.local/share/specy/config)
-fi
 
-if ! [ -f "$HOME/.local/share/specy/config" ]; then
+else 
 
         echo Your GPU model:  
         read gpu
-        echo $gpu >> ~/.local/share/specy/config
+        echo $gpu >> $HOME/.local/share/specy/config
         echo 
 
         echo Your preferred text editor:  
         read editor
-        echo $editor >> ~/.local/share/specy/config
+        echo $editor >> $HOME/.local/share/specy/config
 fi
 
 #COMPUTER INFORMATION DEFINITIONS
