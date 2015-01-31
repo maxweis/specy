@@ -17,7 +17,7 @@ source=('specy::git+https://github.com/maxweis/specy')
 package() {
 	cd "$srcdir/$pkgname"
 
-	install -D -m755 ./specy $pkgdir/usr/bin/specy || return 1
+	install -D -m755 ./specy $pkgdir/usr/bin/specy 
 	mkdir -p $pkgdir/home/$USER/.local/share/specy
         chown $USER $pkgdir/home/$USER/.local/share/specy 
 	install -o $USER -D -m755 ./ram.py $pkgdir/home/$USER/.local/share/specy 
