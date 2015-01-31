@@ -42,7 +42,7 @@ no_color='\e[0m'
 
 
 #CONFIG FILE CREATING OR LOADING
-if  [ -a "$HOME/.local/share/specy/config" ]; then
+if  [ -f "$HOME/.local/share/specy/config" ]; then
         gpu=$(sed '1!d' $HOME/.local/share/specy/config)
 
         editor=$(sed '2!d' $HOME/.local/share/specy/config)
