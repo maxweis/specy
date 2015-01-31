@@ -70,9 +70,6 @@ kernel=$(uname -r)
 
 timeup=$(uptime -p)
 timeup=${timeup:3}
-if [ $timeup -e '' ]; then
-	timeup='0 minutes'
-fi
 
 cpu=$(grep "model name" /proc/cpuinfo | cut -f2 -d: | tail -1)
 cpu=${cpu:1}
