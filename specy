@@ -50,6 +50,22 @@ if  [ -f "$HOME/.local/share/specy/config" ]; then
         editor=$(sed '2!d' $HOME/.local/share/specy/config)
 fi
 
+if ! [ -f "$HOME/.local/share/specy/config" ]; then
+
+        echo Your GPU model:  
+        read gpu
+        echo $gpu >> ~/.local/share/specy/config
+        echo 
+
+        #echo Your primary drive partition:  
+        #read drive
+        #echo $drive >> ~/.local/share/specy/config
+        #echo
+
+        echo Your preferred text editor:  
+        read editor
+        echo $editor >> ~/.local/share/specy/config
+fi
 
 #COMPUTER INFORMATION DEFINITIONS
 user=$(whoami)@$(hostname)
