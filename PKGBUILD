@@ -18,7 +18,7 @@ package() {
 	cd "$srcdir/$pkgname"
 
 	install -D -m755 ./specy $pkgdir/usr/bin/specy 
-	mkdir -p $pkgdir/home/$USER/.local/share/specy
-        chown $USER $pkgdir/home/$USER/.local/share/specy 
-	install -o $USER -D -m755 ./ram.py $pkgdir/home/$USER/.local/share/specy 
+	mkdir -p $pkgdir/etc/xdg/specy
+        chown $USER $pkgdir/etc/xdg/specy 
+	install -o $USER -D -m755 ./ram.py $pkgdir/etc/xdg/specy 
 }
