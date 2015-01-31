@@ -129,8 +129,6 @@ line14A=""
 line14B=""
 line15A=""
 line15B=""
-line16A=""
-line16B=""
 
 # arch_logo(primary_color, secondary_color, primary_text_color, secondary_text_color)
 arch_logo(){
@@ -159,17 +157,17 @@ arch_logo(){
     echo
     echo -e -n "         /$1#####$2###    ###$1#$2\ \\\\$1#$2\          $3$line9A$4$line9B$2"  
     echo
-    echo -e -n "        /$1#####$2##        ##$1##$2\___         $3$line11A$4$line11B$2"  
+    echo -e -n "        /$1#####$2##        ##$1##$2\___         $3$line10A$4$line10B$2"  
     echo
-    echo -e -n "       /$1#####$2##          ##$1#####$2\        $3$line12A$4$line12B$2"  
+    echo -e -n "       /$1#####$2##          ##$1#####$2\        $3$line11A$4$line11B$2"  
     echo
-    echo -e -n "      /$1######$2##          ##$1######$2\       $3$line13A$4$line13B$2"  
+    echo -e -n "      /$1######$2##          ##$1######$2\       $3$line12A$4$line12B$2"  
     echo
-    echo -e -n "     /$1######$2####        ####$1######$2\      $3$line14A$4$line14B$2"  
+    echo -e -n "     /$1######$2####        ####$1######$2\      $3$line13A$4$line13B$2"  
     echo
-    echo -e -n "    /$1###$2#####              #####$1###$2\     $3$line15A$4$line15B$2"  
+    echo -e -n "    /$1###$2#####              #####$1###$2\     $3$line14A$4$line14B$2"  
     echo
-    echo -e -n "   /$1#$2####                      ####$1#$2\    $3$line16A$4$line16B$2"  
+    echo -e -n "   /$1#$2####                      ####$1#$2\    $3$line15A$4$line15B$2"  
     echo
     echo -e -n "   $2###                            ###   "  
     echo
