@@ -4,7 +4,8 @@ The dependencies are as follows (excluding standard Unix programs):
         wmctrl
 
 PRACTICAL NOTE:  You should run this program when your shell starts.
-This can be done by adding "specy" to your .bashrc or .zshrc.
+This can be done by adding "specy" to your .bashrc, .zshrc, or other terminal
+configuration file.
 
 Drive details are not included due to varying partitioning schemes.
 
