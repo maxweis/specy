@@ -10,8 +10,10 @@ A program which displays your computer's specifications which was inspired by th
 ###Dependencies:
 - *python* 
 
+###Packages:
 *specy* is available on the AUR [here](https://aur.archlinux.org/packages/specy)
 
+###Examples
 Maximized view:
 
 ![img](https://farm8.staticflickr.com/7295/16412295802_3dcd77bbc2_n.jpg)
