@@ -162,8 +162,8 @@ cpu=$(grep "model name" /proc/cpuinfo | cut -f2 -d: | tail -1)
 cpu=${cpu:1}
 cpu=$(echo $cpu | tr '\n' ' ')
 
-#total_ram="$(python /etc/xdg/specy/ram.py -t)"
-#used_ram="$(python /etc/xdg/specy/ram.py -u)"
+total_ram="$(python /etc/xdg/specy/ram.py -t)"
+used_ram="$(python /etc/xdg/specy/ram.py -u)"
 
 getwm
 window_manager=$WM
