@@ -3,7 +3,7 @@
 
 #specy:  an Arch Linux system command line description tool
    
-#Copyright (C) 2014  Max Weis
+#Copyright (C) 2014-2015  Max Weis
 
 
 #This program is free software; you can redistribute it and/or

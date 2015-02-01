@@ -1,4 +1,5 @@
 #Maintainer: Maxon Weis <maxrobweis@gmail.com>
+
 pkgname=specy
 pkgver=1.0
 pkgrel=3
