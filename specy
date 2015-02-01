@@ -24,7 +24,7 @@
 clear
 
 
-wm_names=( fluxbox openbox blackbox xfwm4 metacity kwin icewm pekwm fvwm dwm awesome wmaker stumpwm musca xmonad i3 ratpoison scrotwm spectrwm wmfs wmii beryl subtle e16 enlightenment sawfish emerald monsterwm dminiwm compiz Finder herbstluftwm notion bspwm cinnamon 2bwm echinus swm budgie-wm )
+wm_names=( gnome-shell fluxbox openbox blackbox xfwm4 metacity kwin icewm pekwm fvwm dwm awesome wmaker stumpwm musca xmonad i3 ratpoison scrotwm spectrwm wmfs wmii beryl subtle e16 enlightenment sawfish emerald monsterwm dminiwm compiz Finder herbstluftwm notion bspwm cinnamon 2bwm echinus swm budgie-wm )
 
 WM="None (virtual terminal)"
 getwm(){ #inspired by screenFetch (see above for copyright detail)
@@ -48,12 +48,15 @@ getwm(){ #inspired by screenFetch (see above for copyright detail)
                                         'enlightenment') WM="E17";;
                                         'fluxbox') WM="FluxBox";;
                                         'fvwm') WM="FVWM";;
+                                        *'gala'*) WM="Gala";;
+                                        'gnome-shell') WM="Mutter";;
                                         'herbstluftwm') WM="herbstluftwm";;
                                         'icewm') WM="IceWM";;
                                         'kwin') WM="KWin";;
                                         'metacity') WM="Metacity";;
                                         'monsterwm') WM="monsterwm";;
                                         'musca') WM="Musca";;
+                                        'mutter'*) WM="Mutter";;
                                         'notion') WM="Notion";;
                                         'openbox') WM="OpenBox";;
                                         'pekwm') WM="PekWM";;
