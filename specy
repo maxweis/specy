@@ -55,9 +55,13 @@ else
         echo $gpu >> $HOME/.local/share/specy/config
         echo 
 
+        if [ -z "$EDITOR" ]; then
+                editor = $EDITOR
+        else
         echo Your preferred text editor:  
         read editor
         echo $editor >> $HOME/.local/share/specy/config
+fi
 fi
 
 #COMPUTER INFORMATION DEFINITIONS
