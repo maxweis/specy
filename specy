@@ -23,7 +23,6 @@
 
 wm_names=( gnome-shell fluxbox openbox blackbox xfwm4 metacity kwin icewm pekwm fvwm dwm awesome wmaker stumpwm musca xmonad i3 ratpoison scrotwm spectrwm wmfs wmii beryl subtle e16 enlightenment sawfish emerald monsterwm dminiwm compiz Finder herbstluftwm notion bspwm cinnamon 2bwm echinus swm budgie-wm )
 
-WM="None (virtual terminal)"
 getwm(){ #inspired by screenFetch (see above for copyright detail)
         if [ -n "$DISPLAY" ]; then
                 for each in "${wm_names[@]}"; do
@@ -72,7 +71,13 @@ getwm(){ #inspired by screenFetch (see above for copyright detail)
                                         'xmonad') WM="XMonad";;
                                 esac
                         fi
+			
+			if [ -n "$WM" ]; then
+		break
+			fi
                 done
+	else
+		WM="None (virtual terminal)"
         fi
 }
 
@@ -135,8 +140,7 @@ fi
 #COMPUTER INFORMATION DEFINITIONS
 user=$(whoami)@$(hostname)
 
-source /etc/os-release
-os=$PRETTY_NAME
+os="Arch Linux"
 
 kernel=$(uname -r)
 
