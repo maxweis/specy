@@ -6,6 +6,10 @@
 #Copyright (C) 2014  Max Weis
 
 
+#getwm() function and wm_names were modified from screenFetch which is licensed under GPLv3
+
+#Copyright (C) 2010-2014 Brett Bohnenkamper <kittykatt@kittykatt.us>
+
 #This program is free software; you can redistribute it and/or
 #modify it under the terms of the GNU General Public License
 #as published by the Free Software Foundation; either version 2
@@ -19,6 +23,58 @@
 
 clear
 
+
+wm_names=( fluxbox openbox blackbox xfwm4 metacity kwin icewm pekwm fvwm dwm awesome wmaker stumpwm musca xmonad i3 ratpoison scrotwm spectrwm wmfs wmii beryl subtle e16 enlightenment sawfish emerald monsterwm dminiwm compiz Finder herbstluftwm notion bspwm cinnamon 2bwm echinus swm budgie-wm )
+
+WM="None (virtual terminal)"
+getwm(){ #inspired by screenFetch (see above for copyright detail)
+        if [ -n "$DISPLAY" ]; then
+                for each in "${wm_names[@]}"; do
+                        PID="$(pgrep -f $each)"
+                        if [ "$PID" ]; then
+                                case $each in
+                                        '2bwm') WM="2bwm";;
+                                        'awesome') WM="Awesome";;
+                                        'beryl') WM="Beryl";;
+                                        'bspwm') WM="bspwm";;
+                                        'blackbox') WM="BlackBox";;
+                                        'budgie-wm') WM="BudgieWM";;
+                                        'cinnamon') WM="Muffin";;
+                                        'compiz') WM="Compiz";;
+                                        'dminiwm') WM="dminiwm";;
+                                        'dwm') WM="dwm";;
+                                        'e16') WM="E16";;
+                                        'emerald') WM="Emerald";;
+                                        'enlightenment') WM="E17";;
+                                        'fluxbox') WM="FluxBox";;
+                                        'fvwm') WM="FVWM";;
+                                        'herbstluftwm') WM="herbstluftwm";;
+                                        'icewm') WM="IceWM";;
+                                        'kwin') WM="KWin";;
+                                        'metacity') WM="Metacity";;
+                                        'monsterwm') WM="monsterwm";;
+                                        'musca') WM="Musca";;
+                                        'notion') WM="Notion";;
+                                        'openbox') WM="OpenBox";;
+                                        'pekwm') WM="PekWM";;
+                                        'ratpoison') WM="Ratpoison";;
+                                        'sawfish') WM="Sawfish";;
+                                        'scrotwm') WM="ScrotWM";;
+                                        'spectrwm') WM="SpectrWM";;
+                                        'stumpwm') WM="StumpWM";;
+                                        'subtle') WM="subtle";;
+                                        'swm') WM="swm";;
+                                        'wmaker') WM="WindowMaker";;
+                                        'wmfs') WM="WMFS";;
+                                        'wmii') WM="wmii";;
+                                        'xfwm4') WM="Xfwm4";;
+                                        'i3') WM="i3";;
+                                        'xmonad') WM="XMonad";;
+                                esac
+                        fi
+                done
+        fi
+}
 
 #COLOR DEFINITIONS
 intense_blue='\e[0;94m'
@@ -86,11 +142,8 @@ cpu=$(echo $cpu | tr '\n' ' ')
 total_ram="$(python /etc/xdg/specy/ram.py -t)"
 used_ram="$(python /etc/xdg/specy/ram.py -u)"
 
-window_manager=$(wmctrl -m | grep Name)
-window_manager=${window_manager:6}
-if [ -z "$window_manager" ]; then
-        window_manager='None (virtual terminal)'
-fi
+getwm
+window_manager=$WM
 
 shell="${SHELL##*/}"
 
