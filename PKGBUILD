@@ -1,7 +1,7 @@
 #Maintainer: Maxon Weis <maxrobweis@gmail.com>
 pkgname=specy
 pkgver=1.0
-pkgrel=2
+pkgrel=3
 pkgdesc="An Arch Linux system command line description output tool"
 
 arch=('any')
@@ -19,6 +19,5 @@ package() {
 
 	install -D -m755 ./specy $pkgdir/usr/bin/specy 
 	mkdir -p $pkgdir/etc/xdg/specy
-        chown $USER $pkgdir/etc/xdg/specy 
-	install -o $USER -D -m755 ./ram.py $pkgdir/etc/xdg/specy 
+	install -D -m755 ./ram.py $pkgdir/etc/xdg/specy 
 }
