@@ -289,7 +289,8 @@ if [ -n "$HOME/.config/specy/output" ]; then
         config
 fi
 
-#COMPUTER INFORMATION DEFINITIONS
+source $HOME/.config/specy/output
+
 user=$(whoami)@$(hostname)
 
 os="Arch Linux"
@@ -326,9 +327,9 @@ else
         width_limit=$(( $cpu_text_width + 47 ))
 fi
 
-line1A="User: "
-line1B="$user"
-line2A="OS: "
+line1A="${field1[0]} "
+line1B="${field2[0]} "
+line2A="${field1[1]"
 line2B="$os"
 line3A="Uptime: "
 line3B="$timeup"
