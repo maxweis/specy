@@ -21,6 +21,16 @@
 #GNU General Public License for more details.
 
 
+#TODO:
+#add configuration for output
+#add new ram functions in bash to replace python ones
+
+#used_ram(){
+#}
+
+#total_ram(){
+#}
+
 wm_names=( gnome-shell fluxbox openbox blackbox xfwm4 metacity kwin icewm pekwm fvwm dwm awesome wmaker stumpwm musca xmonad i3 ratpoison scrotwm spectrwm wmfs wmii beryl subtle e16 enlightenment sawfish emerald monsterwm dminiwm compiz Finder herbstluftwm notion bspwm cinnamon 2bwm echinus swm budgie-wm )
 
 getwm(){ #inspired by screenFetch (see above for copyright detail)
@@ -29,6 +39,7 @@ getwm(){ #inspired by screenFetch (see above for copyright detail)
                         PID="$(pgrep -f $each)"
                         if [ "$PID" ]; then
                                 case $each in
+					'*') WM="None (virtual terminal)";;
                                         '2bwm') WM="2bwm";;
                                         'awesome') WM="Awesome";;
                                         'beryl') WM="Beryl";;
@@ -70,8 +81,6 @@ getwm(){ #inspired by screenFetch (see above for copyright detail)
                                         'i3') WM="i3";;
                                         'xmonad') WM="XMonad";;
                                 esac
-			else
-				WM="None (virtual terminal)"
                         fi
 			
 			if [ -n "$WM" ]; then
@@ -153,8 +162,8 @@ cpu=$(grep "model name" /proc/cpuinfo | cut -f2 -d: | tail -1)
 cpu=${cpu:1}
 cpu=$(echo $cpu | tr '\n' ' ')
 
-total_ram="$(python /etc/xdg/specy/ram.py -t)"
-used_ram="$(python /etc/xdg/specy/ram.py -u)"
+#total_ram="$(python /etc/xdg/specy/ram.py -t)"
+#used_ram="$(python /etc/xdg/specy/ram.py -u)"
 
 getwm
 window_manager=$WM
