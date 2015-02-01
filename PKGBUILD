@@ -7,7 +7,7 @@ pkgdesc="An Arch Linux system command line description output tool"
 
 arch=('any')
 url="https://github.com/maxweis/specy"
-license=('GPL')
+license=('GPL3')
 depends=('python')
 makedepends=('git')
 provides=('specy')

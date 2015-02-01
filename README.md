@@ -37,14 +37,14 @@ You should run this program when your shell starts. To do so, you can add the co
 
 
 ###License
-*specy* is licensed under the GNU General Public License v2
+*specy* is licensed under the GNU General Public License version 3 
 
 
 Copyright (C) 2014-2015  Max Weis
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
-as published by the Free Software Foundation; either version 2
+as published by the Free Software Foundation; either version 3
 of the License, or (at your option) any later version.
 
 This program is distributed in the hope that it will be useful,
