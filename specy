@@ -70,6 +70,8 @@ getwm(){ #inspired by screenFetch (see above for copyright detail)
                                         'i3') WM="i3";;
                                         'xmonad') WM="XMonad";;
                                 esac
+			else
+				WM="None (virtual terminal)"
                         fi
 			
 			if [ -n "$WM" ]; then
