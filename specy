@@ -98,13 +98,13 @@ no_color='\e[0m'
 
 
 #CONFIG FILE CREATING OR LOADING
-if  [ -f "$HOME/.local/share/specy/config" ]; then
-        gpu=$(sed '1!d' $HOME/.local/share/specy/config)
+if  [ -f "$HOME/.config/specy/config" ]; then
+        gpu=$(sed '1!d' $HOME/.config/specy/config)
 
         if [ -n "$EDITOR" ]; then
                 editor=$EDITOR
         else
-                editor=$(sed '2!d' $HOME/.local/share/specy/config)
+                editor=$(sed '2!d' $HOME/.config/specy/config)
         fi
 
 else 
@@ -114,13 +114,13 @@ else
 	echo -e "This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version.\n"
 	echo -e "This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.\n"
 
-        if ! [ -d "$HOME/.local/share/specy" ]; then
-                mkdir $HOME/.local/share/specy
+        if ! [ -d "$HOME/.config/specy" ]; then
+                mkdir $HOME/.config/specy
         fi
 
         echo Your GPU model:  
         read gpu
-        echo $gpu >> $HOME/.local/share/specy/config
+        echo $gpu >> $HOME/.config/specy/config
         echo 
 
         if [ -n "$EDITOR" ]; then
@@ -129,7 +129,7 @@ else
                 echo Your preferred text editor:  
                 read editor
         fi
-        echo $editor >> $HOME/.local/share/specy/config
+        echo $editor >> $HOME/.config/specy/config
 fi
 
 #COMPUTER INFORMATION DEFINITIONS

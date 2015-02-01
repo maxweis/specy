@@ -30,7 +30,7 @@ The options for colors are intense_blue, blue, white, gray, dark_grey, light_blu
 
 
 ###Miscellaneous
-By default the config file is stored in ~/.local/share/specy/config
+By default the config file is stored in ~/.config/specy/config
 
 Drive details are not included due to varying partition schemes
 
