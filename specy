@@ -92,6 +92,8 @@ if [ -z "$window_manager" ]; then
         window_manager='None (virtual terminal)'
 fi
 
+shell="${SHELL##*/}"
+
 packages=$(pacman -Q | wc -l)
 
 gpu_text_width=${#gpu}
@@ -121,12 +123,14 @@ line6A="GPU: "
 line6B="$gpu"
 line7A="RAM: "
 line7B="$used_ram / $total_ram"
-line8A="Window Manager: "
-line8B="$window_manager"
-line9A="Packages Installed: "
-line9B="$packages"
-line10A="Text Editor: "
-line10B="$editor"
+line8A="Shell: "
+line8B="$shell"
+line9A="Window Manager: "
+line9B="$window_manager"
+line10A="Packages Installed: "
+line10B="$packages"
+line11A="Text Editor: "
+line11B="$editor"
 line11A=""
 line11B=""
 line12A=""
