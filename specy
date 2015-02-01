@@ -92,6 +92,143 @@ getwm(){ #inspired by screenFetch (see above for copyright detail)
         fi
 }
 
+declare -a field1
+declare -a field2
+n=0
+
+config(){
+        echo -e "Show user? [y/n]\n"
+        read choice
+
+        if [ $choice = "Y" ] || [ $choice = "y" ]; then
+                field1[n]="User: "
+                field2[n]="user"
+                ((n++))
+        fi
+
+
+        echo -e "Show OS? [y/n]\n"
+        read choice
+
+        if [ $choice = "Y" ] || [ $choice = "y" ]; then
+                field1[n]="OS: "
+                field2[n]=""
+                ((n++))
+        fi
+
+
+        echo -e "Show uptime? [y/n]\n"
+        read choice
+
+        if [ $choice = "Y" ] || [ $choice = "y" ]; then
+                field1[n]="Uptime: "
+                field2[n]="timeup"
+                ((n++))
+        fi
+
+
+        echo -e "Show kernel? [y/n]\n"
+        read choice
+
+        if [ $choice = "Y" ] || [ $choice = "y" ]; then
+                field1[n]="Kernel: "
+                field2[n]="kernel"
+                ((n++))
+        fi
+
+
+        echo -e "Show CPU? [y/n]\n"
+        read choice
+
+        if [ $choice = "Y" ] || [ $choice = "y" ]; then
+                field1[n]="CPU: "
+                field2[n]="cpu"
+                ((n++))
+        fi
+
+
+        echo -e "Show GPU? [y/n]\n"
+        read choice
+
+        if [ $choice = "Y" ] || [ $choice = "y" ]; then
+                field1[n]="GPU: "
+                field2[n]="gpu"
+                ((n++))
+        fi
+
+
+        echo -e "Show RAM? [y/n]\n"
+        read choice
+
+        if [ $choice = "Y" ] || [ $choice = "y" ]; then
+                field1[n]="RAM: "
+                field2[n]="ram"
+                ((n++))
+        fi
+
+
+        echo -e "Show window manager? [y/n]\n"
+        read choice
+
+        if [ $choice = "Y" ] || [ $choice = "y" ]; then
+                field1[n]="Window manager: "
+                field2[n]="window_manager"
+                ((n++))
+        fi
+
+
+        echo -e "Show shell? [y/n]\n"
+        read choice
+
+        if [ $choice = "Y" ] || [ $choice = "y" ]; then
+                field1[n]="Shell: "
+                field2[n]="shell"
+        fi
+
+
+        echo -e "Show amount of packages? [y/n]\n"
+        read choice
+
+        if [ $choice = "Y" ] || [ $choice = "y" ]; then
+                field1[n]="Packages: "
+                field2[n]="packages"
+                ((n++))
+        fi
+
+
+        echo -e "Show text editor? [y/n]\n"
+        read choice
+
+        if [ $choice = "Y" ] || [ $choice = "y" ]; then
+                field1[n]="Editor: "
+                field2[n]="editor"
+        fi
+
+
+        echo -n "field1=(" > $HOME/.config/specy/output
+        n=0
+
+        for option in  "${field1[@]}"; do
+                echo -n "${field1[n]} " >> $HOME/.config/specy/output
+                ((n++))
+        done
+
+        echo ")" >> $HOME/.config/specy/output
+
+        echo -n "field2=(" >> $HOME/.config/specy/output
+
+        n=0
+
+        for option in "${field2[@]}"; do
+                echo -n "${field2[n]} " >> $HOME/.config/specy/output
+                ((n++))
+        done
+
+        echo -n ")" >> $HOME/.config/specy/output
+
+
+}
+
 #COLOR DEFINITIONS
 intense_blue='\e[0;94m'
 blue='\e[0;34m'
@@ -146,6 +283,10 @@ else
                 read editor
         fi
         echo $editor >> $HOME/.config/specy/config
+fi
+
+if [ -n "$HOME/.config/specy/output" ]; then
+        config
 fi
 
 #COMPUTER INFORMATION DEFINITIONS
