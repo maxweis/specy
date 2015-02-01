@@ -20,7 +20,7 @@ Minimized view:
 
 ![img](https://farm9.staticflickr.com/8677/16411466791_903a7e78e5_n.jpg)
 
-###usage:
+###Usage:
     specy primary_logo_color secondary_logo_color primary_text_color secondary_text_color
     
 The options for colors are intense_blue, blue, white, gray, dark_grey, light_blue, black, green, cyan, red, purple, brown, light_green, light_cyan, light_red, light_purple, yellow, and no_color
