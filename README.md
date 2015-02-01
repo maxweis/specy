@@ -9,6 +9,7 @@ A program which displays your computer's specifications which was inspired by th
 
 ###Dependencies:
 - *python* 
+- *ncurses*
 
 ###Packages:
 *specy* is available on the AUR [here](https://aur.archlinux.org/packages/specy)
