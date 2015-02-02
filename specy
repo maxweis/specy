@@ -203,6 +203,7 @@ config(){
         if [ $choice = "y" ] || [ $choice = "y" ]; then
                 field1[n]="Terminal: "
                 field2[n]="TERM"
+                ((n++))
         fi
 
 
@@ -213,6 +214,7 @@ config(){
         if [ $choice = "y" ] || [ $choice = "y" ]; then
                 field1[n]="shell: "
                 field2[n]="shell"
+                ((x++))
         fi
 
 
