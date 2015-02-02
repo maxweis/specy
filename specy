@@ -498,7 +498,7 @@ elif [ "$terminal_width" -ge "$width_limit" ] && [ "$terminal_height" -ge "$heig
         if [ $# = 4 ]; then
                 arch_logo ${!1} ${!2} ${!3} ${!4} 
         else
-                arch_logo $blue $light_blue $blue $gray
+                arch_logo $blue $light_blue $light_blue $white
         fi
 
 elif [ "$terminal_width" -ge 40 ] && [ "$terminal_height" -ge 23 ]; then
