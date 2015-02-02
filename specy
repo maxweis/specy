@@ -214,7 +214,7 @@ config(){
         if [ $choice = "y" ] || [ $choice = "y" ]; then
                 field1[n]="shell: "
                 field2[n]="shell"
-                ((x++))
+                ((n++))
         fi
 
 
