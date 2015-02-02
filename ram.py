@@ -25,12 +25,9 @@ memory = (os.popen("free -h")).read()
 
 memory = memory.split('\n')
 
-used_memory = memory[1].split ('        ')
-total_memory = memory[1].split('        ')
+used_memory = memory[1].split()[2]
+total_memory = memory[1].split()[1]
 
-used_memory = used_memory[2].strip()
-
-total_memory = total_memory[1].strip()
 if (len(sys.argv) < 2):
     print("Usage:  " + sys.argv[0] + " [-t] [-u]")
 

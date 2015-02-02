@@ -22,14 +22,8 @@
 
 
 #TODO:
-#add new ram functions in bash to replace python ones
-#add drive details including fs, size, usage, and mount point
-
-#used_ram(){
-#}
-
-#total_ram(){
-#}
+#add drive details including fs, percentage used, size, usage, and mount point
+#add ram percentage
 
 if [ "$1" = "--reconfigure" ] || [ "$1" = "-r" ]; then
         if [ -d "$HOME/.config/specy" ]; then
