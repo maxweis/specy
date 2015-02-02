@@ -196,12 +196,22 @@ config(){
         fi
 
 
-        echo -e "Show shell? [y/n]"
+        echo -e "show terminal? [y/n]"
         read choice
         echo
 
-        if [ $choice = "Y" ] || [ $choice = "y" ]; then
-                field1[n]="Shell: "
+        if [ $choice = "y" ] || [ $choice = "y" ]; then
+                field1[n]="Terminal: "
+                field2[n]="TERM"
+        fi
+
+
+        echo -e "show shell? [y/n]"
+        read choice
+        echo
+
+        if [ $choice = "y" ] || [ $choice = "y" ]; then
+                field1[n]="shell: "
                 field2[n]="shell"
         fi
 
