@@ -23,6 +23,7 @@
 
 #TODO:
 #add new ram functions in bash to replace python ones
+#add drive details including fs, size, usage, and mount point
 
 #used_ram(){
 #}
