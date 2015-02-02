@@ -6,6 +6,7 @@ A program which displays your computer's specifications which was inspired by th
 - Customizable colors through command arguments
 - Easily add new information to the output
 - Displays dynamically updating values including RAM, window manager, and packages installed
+- Configure what is displayed upon execution
 
 ###Dependencies:
 - *python* 

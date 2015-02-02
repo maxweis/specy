@@ -22,7 +22,6 @@
 
 
 #TODO:
-#add configuration for output
 #add new ram functions in bash to replace python ones
 
 #used_ram(){
@@ -97,8 +96,9 @@ declare -a field2
 n=0
 
 config(){
-        echo -e "Show user? [y/n]\n"
+        echo -e "Show user? [y/n]"
         read choice
+        echo
 
         if [ $choice = "Y" ] || [ $choice = "y" ]; then
                 field1[n]="User: "
@@ -107,18 +107,20 @@ config(){
         fi
 
 
-        echo -e "Show OS? [y/n]\n"
+        echo -e "Show OS? [y/n]"
         read choice
+        echo
 
         if [ $choice = "Y" ] || [ $choice = "y" ]; then
                 field1[n]="OS: "
-                field2[n]=""
+                field2[n]="os"
                 ((n++))
         fi
 
 
-        echo -e "Show uptime? [y/n]\n"
+        echo -e "Show uptime? [y/n]"
         read choice
+        echo
 
         if [ $choice = "Y" ] || [ $choice = "y" ]; then
                 field1[n]="Uptime: "
@@ -127,8 +129,9 @@ config(){
         fi
 
 
-        echo -e "Show kernel? [y/n]\n"
+        echo -e "Show kernel? [y/n]"
         read choice
+        echo
 
         if [ $choice = "Y" ] || [ $choice = "y" ]; then
                 field1[n]="Kernel: "
@@ -137,8 +140,9 @@ config(){
         fi
 
 
-        echo -e "Show CPU? [y/n]\n"
+        echo -e "Show CPU? [y/n]"
         read choice
+        echo
 
         if [ $choice = "Y" ] || [ $choice = "y" ]; then
                 field1[n]="CPU: "
@@ -147,8 +151,9 @@ config(){
         fi
 
 
-        echo -e "Show GPU? [y/n]\n"
+        echo -e "Show GPU? [y/n]"
         read choice
+        echo
 
         if [ $choice = "Y" ] || [ $choice = "y" ]; then
                 field1[n]="GPU: "
@@ -157,8 +162,9 @@ config(){
         fi
 
 
-        echo -e "Show RAM? [y/n]\n"
+        echo -e "Show RAM? [y/n]"
         read choice
+        echo
 
         if [ $choice = "Y" ] || [ $choice = "y" ]; then
                 field1[n]="RAM: "
@@ -167,18 +173,20 @@ config(){
         fi
 
 
-        echo -e "Show window manager? [y/n]\n"
+        echo -e "Show window manager? [y/n]"
         read choice
+        echo
 
         if [ $choice = "Y" ] || [ $choice = "y" ]; then
-                field1[n]="Window manager: "
+                field1[n]="Window\ manager: "
                 field2[n]="window_manager"
                 ((n++))
         fi
 
 
-        echo -e "Show shell? [y/n]\n"
+        echo -e "Show shell? [y/n]"
         read choice
+        echo
 
         if [ $choice = "Y" ] || [ $choice = "y" ]; then
                 field1[n]="Shell: "
@@ -186,8 +194,9 @@ config(){
         fi
 
 
-        echo -e "Show amount of packages? [y/n]\n"
+        echo -e "Show amount of packages? [y/n]"
         read choice
+        echo
 
         if [ $choice = "Y" ] || [ $choice = "y" ]; then
                 field1[n]="Packages: "
@@ -196,7 +205,7 @@ config(){
         fi
 
 
-        echo -e "Show text editor? [y/n]\n"
+        echo -e "Show text editor? [y/n]"
         read choice
 
         if [ $choice = "Y" ] || [ $choice = "y" ]; then
@@ -225,8 +234,6 @@ config(){
         done
 
         echo -n ")" >> $HOME/.config/specy/output
-
-
 }
 
 #COLOR DEFINITIONS
@@ -285,7 +292,7 @@ else
         echo $editor >> $HOME/.config/specy/config
 fi
 
-if [ -n "$HOME/.config/specy/output" ]; then
+if ! [ -f "$HOME/.config/specy/output" ]; then
         config
 fi
 
@@ -306,6 +313,7 @@ cpu=$(echo $cpu | tr '\n' ' ')
 
 total_ram="$(python /etc/xdg/specy/ram.py -t)"
 used_ram="$(python /etc/xdg/specy/ram.py -u)"
+ram="$used_ram / $total_ram"
 
 getwm
 window_manager=$WM
@@ -328,35 +336,37 @@ else
 fi
 
 line1A="${field1[0]} "
-line1B="${field2[0]} "
-line2A="${field1[1]"
-line2B="$os"
-line3A="Uptime: "
-line3B="$timeup"
-line4A="Kernel: "
-line4B="$kernel"
-line5A="CPU: "
-line5B="$cpu"
-line6A="GPU: "
-line6B="$gpu"
-line7A="RAM: "
-line7B="$used_ram / $total_ram"
-line8A="Window Manager: "
-line8B="$window_manager"
-line9A="Packages Installed: "
-line9B="$packages"
-line10A="Text Editor: "
-line10B="$editor"
-line11A=""
-line11B=""
-line12A=""
-line12A=""
-line13A=""
-line13A=""
-line14A=""
-line14B=""
-line15A=""
-line15B=""
+line1B="${!field2[0]}"
+line2A="${field1[1]} "
+line2B="${!field2[1]}"
+line3A="${field1[2]} "
+line3B="${!field2[2]}"
+line4A="${field1[3]} "
+line4B="${!field2[3]}"
+line5A="${field1[4]} "
+line5B="${!field2[4]}"
+line6A="${field1[5]} "
+line6B="${!field2[5]}"
+line7A="${field1[6]} "
+line7B="${!field2[6]}"
+line8A="${field1[7]} "
+line8B="${!field2[7]}"
+line9A="${field1[8]} "
+line9B="${!field2[8]}"
+line10A="${field1[9]} "
+line10B="${!field2[9]}"
+line11A="${field1[10]} "
+line11B="${!field2[10]}"
+line12A="${field1[11]} "
+line12A="${!field2[11]} "
+line13A="${field1[12]}"
+line13A="${!field2[12]} "
+line14A="${field1[13]}"
+line14B="${!field2[13]} "
+line15A="${field1[14]}"
+line15B="${!field2[14]} "
+line16A="${field1[15]}"
+line16B="${!field2[16]} "
 
 # arch_logo(primary_color, secondary_color, primary_text_color, secondary_text_color)
 arch_logo(){
