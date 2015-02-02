@@ -30,6 +30,13 @@
 #total_ram(){
 #}
 
+if [ "$1" = "--reconfigure" ] || [ "$1" = "-r" ]; then
+        if [ -d "$HOME/.config/specy" ]; then
+                rm $HOME/.config/specy/*
+                echo Configured.
+        fi
+fi
+
 wm_names=( gnome-shell fluxbox openbox blackbox xfwm4 metacity kwin icewm pekwm fvwm dwm awesome wmaker stumpwm musca xmonad i3 ratpoison scrotwm spectrwm wmfs wmii beryl subtle e16 enlightenment sawfish emerald monsterwm dminiwm compiz Finder herbstluftwm notion bspwm cinnamon 2bwm echinus swm budgie-wm )
 
 getwm(){ #inspired by screenFetch (see above for copyright detail)
@@ -173,6 +180,17 @@ config(){
         fi
 
 
+        echo -e "Show display environment? [y/n]"
+        read choice
+        echo
+
+        if [ $choice = "Y" ] || [ $choice = "y" ]; then
+                field1[n]="Display\ environment: "
+                field2[n]="display_environment"
+                ((n++))
+        fi
+
+
         echo -e "Show window manager? [y/n]"
         read choice
         echo
@@ -234,6 +252,8 @@ config(){
         done
 
         echo -n ")" >> $HOME/.config/specy/output
+        
+        echo -e "Reconfigure by passing the -r or --reconfigure argument\n"
 }
 
 #COLOR DEFINITIONS
@@ -317,6 +337,8 @@ ram="$used_ram / $total_ram"
 
 getwm
 window_manager=$WM
+
+display_environment=$XDG_CURRENT_DESKTOP
 
 shell="${SHELL##*/}"
 
@@ -463,10 +485,13 @@ arch_logo_minimal(){
     echo
 }
 
-if [ $# != 4 ] && [ $# != 0 ]; then
+if [ "$1" = "--reconfigure" ] || [ "$1" = "-r" ]; then
+        echo "Finished configuration."
+
+elif [ $# != 4 ] && [ $# != 0 ]; then
         echo -e Four colors must be specified or leave defaults\\nOptions are intense_blue, blue, white, gray, dark_grey, light_blue, black, green, cyan, red, purple, brown, light_green, light_cyan, light_red, light_purple, yellow, no_color
         echo -e '\n'
-        echo Usage: $0 primary_logo_color secondary_logo_color primary_text_color secondary_text_color
+        echo Usage: $0  [-r] primary_logo_color secondary_logo_color primary_text_color secondary_text_color
 
 elif [ "$terminal_width" -ge "$width_limit" ] && [ "$terminal_height" -ge "$height_limit" ]; then
         if [ $# = 4 ]; then

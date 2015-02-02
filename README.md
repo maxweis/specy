@@ -37,6 +37,8 @@ Drive details are not included due to varying partition schemes
 
 You should run this program when your shell starts. To do so, you can add the command *specy* to your .bashrc, .zshrc, or other shell configuration file.
 
+To reconfigure your output setup, run specy with -r or --reconfigure
+
 
 ###License
 *specy* is licensed under the GNU General Public License version 3 
