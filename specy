@@ -489,7 +489,7 @@ arch_logo_minimal(){
 if [ "$1" = "--reconfigure" ] || [ "$1" = "-r" ]; then
         echo "Finished configuration."
 
-elif [ "$1" = "--dimensions" ] || [ "$1" = "-m" ]; then
+elif [ "$1" = "--dimensions" ] || [ "$1" = "-d" ]; then
         echo "Minimum dimensions for full display: $width_limit columns and $height_limit rows"
         echo "Minimum dimensinos for minimal display: 40 columns and 23 rows"
 
