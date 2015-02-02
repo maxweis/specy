@@ -23,7 +23,6 @@
 
 #TODO:
 #add drive details including fs, percentage used, size, usage, and mount point
-#add ram percentage
 
 if [ "$1" = "--reconfigure" ] || [ "$1" = "-r" ]; then
         if [ -d "$HOME/.config/specy" ]; then
@@ -274,12 +273,12 @@ no_color='\e[0m'
 
 #CONFIG FILE CREATING OR LOADING
 if  [ -f "$HOME/.config/specy/config" ]; then
-        gpu=$(sed '1!d' $HOME/.config/specy/config)
+        gpu=$(sed '1q;d' $HOME/.config/specy/config)
 
         if [ -n "$EDITOR" ]; then
                 editor=$EDITOR
         else
-                editor=$(sed '2!d' $HOME/.config/specy/config)
+                editor=$(sed '2q;d' $HOME/.config/specy/config)
         fi
 
 else 
@@ -326,9 +325,10 @@ cpu=$(grep "model name" /proc/cpuinfo | cut -f2 -d: | tail -1)
 cpu=${cpu:1}
 cpu=$(echo $cpu | tr '\n' ' ')
 
-total_ram="$(python /etc/xdg/specy/ram.py -t)"
-used_ram="$(python /etc/xdg/specy/ram.py -u)"
-ram="$used_ram / $total_ram"
+total_ram="$(free -h | awk '/Mem/ {print $2}')"
+used_ram="$(free -h | awk '/Mem/ {print $3}')"
+percent_ram="$(free | awk '/Mem/ {printf("%d%%", $3/$2 * 100)}')"
+ram="$used_ram / $total_ram ($percent_ram)"
 
 getwm
 window_manager=$WM
