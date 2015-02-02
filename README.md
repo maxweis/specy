@@ -9,7 +9,6 @@ A program which displays your computer's specifications which was inspired by th
 - Configure what is displayed upon execution
 
 ###Dependencies:
-- *python* 
 - *ncurses*
 
 ###Packages:
