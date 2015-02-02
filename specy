@@ -196,26 +196,15 @@ config(){
         fi
 
 
-        echo -e "show terminal? [y/n]"
-        read choice
-        echo
+        #echo -e "Show shell? [y/n]"
+        #read choice
+        #echo
 
-        if [ $choice = "y" ] || [ $choice = "y" ]; then
-                field1[n]="Terminal: "
-                field2[n]="TERM"
-                ((n++))
-        fi
-
-
-        echo -e "show shell? [y/n]"
-        read choice
-        echo
-
-        if [ $choice = "y" ] || [ $choice = "y" ]; then
-                field1[n]="shell: "
-                field2[n]="shell"
-                ((n++))
-        fi
+        #if [ $choice = "Y" ] || [ $choice = "y" ]; then
+                #field1[n]="Shell: "
+                #field2[n]="shell"
+                #((n++))
+        #fi
 
 
         echo -e "Show amount of packages? [y/n]"
@@ -235,6 +224,7 @@ config(){
         if [ $choice = "Y" ] || [ $choice = "y" ]; then
                 field1[n]="Editor: "
                 field2[n]="editor"
+                ((n++))
         fi
 
 
@@ -288,9 +278,9 @@ if  [ -f "$HOME/.config/specy/config" ]; then
         gpu=$(sed '1q;d' $HOME/.config/specy/config)
 
         if [ -n "$EDITOR" ]; then
-                editor=$EDITOR
+                editor="$EDITOR"
         else
-                editor=$(sed '2q;d' $HOME/.config/specy/config)
+                editor="$(sed '2q;d' $HOME/.config/specy/config)"
         fi
 
 else 
@@ -310,7 +300,7 @@ else
         echo 
 
         if [ -n "$EDITOR" ]; then
-                editor=$EDITOR
+                editor="$EDITOR"
         else
                 echo Your preferred text editor:  
                 read editor
@@ -342,13 +332,13 @@ used_ram="$(free -h | awk '/Mem/ {print $3}')"
 percent_ram="$(free | awk '/Mem/ {printf("%d%%", $3/$2 * 100)}')"
 ram="$used_ram / $total_ram ($percent_ram)"
 getwm
-window_manager=$WM
+window_manager="$WM"
 
 display_environment=$XDG_CURRENT_DESKTOP
 
 shell="${SHELL##*/}"
 
-packages=$(pacman -Q | wc -l)
+packages="$(pacman -Q | wc -l)"
 
 gpu_text_width=${#gpu}
 cpu_text_width=${#cpu}
