@@ -329,7 +329,6 @@ total_ram="$(free -h | awk '/Mem/ {print $2}')"
 used_ram="$(free -h | awk '/Mem/ {print $3}')"
 percent_ram="$(free | awk '/Mem/ {printf("%d%%", $3/$2 * 100)}')"
 ram="$used_ram / $total_ram ($percent_ram)"
-
 getwm
 window_manager=$WM
 
