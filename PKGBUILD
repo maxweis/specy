@@ -19,6 +19,4 @@ package() {
 	cd "$srcdir/$pkgname"
 
 	install -D -m755 ./specy $pkgdir/usr/bin/specy 
-	mkdir -p $pkgdir/etc/xdg/specy
-	install -D -m755 ./ram.py $pkgdir/etc/xdg/specy 
 }
