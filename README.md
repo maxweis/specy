@@ -39,6 +39,9 @@ You should run this program when your shell starts. To do so, you can add the co
 
 To reconfigure your output setup, run specy with -r or --reconfigure
 
+To get the minimum size of your terminal window to display specy use -d or
+--dimensions
+
 
 ###License
 *specy* is licensed under the GNU General Public License version 3 

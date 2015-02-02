@@ -489,6 +489,10 @@ arch_logo_minimal(){
 if [ "$1" = "--reconfigure" ] || [ "$1" = "-r" ]; then
         echo "Finished configuration."
 
+elif [ "$1" = "--dimensions" ] || [ "$1" = "-m" ]; then
+        echo "Minimum dimensions for full display: $width_limit columns and $height_limit rows"
+        echo "Minimum dimensinos for minimal display: 40 columns and 23 rows"
+
 elif [ $# != 4 ] && [ $# != 0 ]; then
         echo -e Four colors must be specified or leave defaults\\nOptions are intense_blue, blue, white, gray, dark_grey, light_blue, black, green, cyan, red, purple, brown, light_green, light_cyan, light_red, light_purple, yellow, no_color
         echo -e '\n'
