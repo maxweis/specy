@@ -1,5 +1,5 @@
 #specy
-A program which displays your computer's specifications which was inspired by the package [*archey*](https://aur.archlinux.org/packages/archey/). It is implemented in bash and python.
+A program which displays your computer's specifications which was inspired by the package [*archey*](https://aur.archlinux.org/packages/archey/). It is implemented in bash.
 
 ###Features:
 - Adapt to size of terminal to show minimal or full display
