@@ -22,7 +22,7 @@
 
 
 #TODO:
-#add drive details including fs, percentage used, size, usage, and mount point
+#add drive details including fs, percentage used, size, usage, and mount point (in bash)
 
 if [ "$1" = "--reconfigure" ] || [ "$1" = "-r" ]; then
         if [ -d "$HOME/.config/specy" ]; then
