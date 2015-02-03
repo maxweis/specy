@@ -196,15 +196,26 @@ config(){
         fi
 
 
-        #echo -e "Show shell? [y/n]"
-        #read choice
-        #echo
+        echo -e "Show terminal? [y/n]"
+        read choice
+        echo
 
-        #if [ $choice = "Y" ] || [ $choice = "y" ]; then
-                #field1[n]="Shell: "
-                #field2[n]="shell"
-                #((n++))
-        #fi
+        if [ $choice = "Y" ] || [ $choice = "y" ]; then
+                field1[n]="Terminal: "
+                field2[n]="TERM"
+                ((n++))
+        fi
+
+
+        echo -e "Show shell? [y/n]"
+        read choice
+        echo
+
+        if [ $choice = "Y" ] || [ $choice = "y" ]; then
+                field1[n]="Shell: "
+                field2[n]="shell"
+                ((n++))
+        fi
 
 
         echo -e "Show amount of packages? [y/n]"
@@ -331,6 +342,7 @@ total_ram="$(free -h | awk '/Mem/ {print $2}')"
 used_ram="$(free -h | awk '/Mem/ {print $3}')"
 percent_ram="$(free | awk '/Mem/ {printf("%d%%", $3/$2 * 100)}')"
 ram="$used_ram / $total_ram ($percent_ram)"
+
 getwm
 window_manager="$WM"
 
@@ -376,9 +388,9 @@ line10B="${!field2[9]}"
 line11A="${field1[10]} "
 line11B="${!field2[10]}"
 line12A="${field1[11]} "
-line12A="${!field2[11]} "
+line12B="${!field2[11]} "
 line13A="${field1[12]}"
-line13A="${!field2[12]} "
+line13B="${!field2[12]} "
 line14A="${field1[13]}"
 line14B="${!field2[13]} "
 line15A="${field1[14]}"
