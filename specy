@@ -506,7 +506,11 @@ elif [ "$1" = "--dimensions" ] || [ "$1" = "-d" ]; then
 elif [ $# != 4 ] && [ $# != 0 ]; then
         echo -e Four colors must be specified or leave defaults\\nOptions are intense_blue, blue, white, gray, dark_grey, light_blue, black, green, cyan, red, purple, brown, light_green, light_cyan, light_red, light_purple, yellow, no_color
         echo -e '\n'
-        echo Usage: $0  [-r] primary_logo_color secondary_logo_color primary_text_color secondary_text_color
+        echo Usage: $0  [-r] [-m] primary_logo_color secondary_logo_color primary_text_color secondary_text_color
+        echo Options:
+        echo -r or --reconfigure	reset specy setup
+        echo 
+        echo -d or --dimensions		print dimensions required for display
 
 elif [ "$terminal_width" -ge "$width_limit" ] && [ "$terminal_height" -ge "$height_limit" ]; then
         if [ $# = 4 ]; then
