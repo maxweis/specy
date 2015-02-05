@@ -7,7 +7,6 @@
 
 
 #getwm() function and wm_names were modified from screenFetch which is licensed under GPLv3
-
 #Copyright (C) 2010-2014 Brett Bohnenkamper <kittykatt@kittykatt.us>
 
 #This program is free software; you can redistribute it and/or
