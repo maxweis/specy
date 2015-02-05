@@ -311,10 +311,6 @@ light_purple='\e[1;31m'
 yellow='\e[1;31m'
 no_color='\e[0m'
 
-
-#CONFIG FILE CREATING OR LOADING
-
-
 if ! [ -f "$HOME/.config/specy/output" ]; then
         config
 fi
@@ -494,7 +490,7 @@ arch_logo_minimal(){
 }
 
 if [ "$1" = "--reconfigure" ] || [ "$1" = "-r" ]; then
-                if [ -d "$HOME/.config/specy" ]; then
+        if [ -d "$HOME/.config/specy" ]; then
                 rm $HOME/.config/specy/*
                 echo Configuration reset
         fi
