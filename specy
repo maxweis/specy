@@ -20,6 +20,8 @@
 #GNU General Public License for more details.
 
 
+#TO DO:
+# store static values in files for potential faster execution
 
 wm_names=( gnome-shell fluxbox openbox blackbox xfwm4 metacity kwin icewm pekwm fvwm dwm awesome wmaker stumpwm musca xmonad i3 ratpoison scrotwm spectrwm wmfs wmii beryl subtle e16 enlightenment sawfish emerald monsterwm dminiwm compiz Finder herbstluftwm notion bspwm cinnamon 2bwm echinus swm budgie-wm )
 
