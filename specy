@@ -90,6 +90,41 @@ declare -a field2
 n=0
 
 config(){
+        if  [ -f "$HOME/.config/specy/config" ]; then
+        	gpu=$(sed '1q;d' $HOME/.config/specy/config)
+
+	        if [ -n "$EDITOR" ]; then
+	                editor="$EDITOR"
+	        else
+	                editor="$(sed '2q;d' $HOME/.config/specy/config)"
+	        fi
+	
+	else 
+	        echo
+	        echo -e "specy; an Arch Linux system command line description output tool\n\n"
+		echo -e "Copyright (C) 2014-2015 Max Weis\n"
+		echo -e "This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version.\n"
+		echo -e "This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.\n"
+	
+	        if ! [ -d "$HOME/.config/specy" ]; then
+	                mkdir $HOME/.config/specy
+	        fi
+	
+	        echo Your GPU model:  
+	        read gpu
+	        echo $gpu >> $HOME/.config/specy/config
+	        echo 
+	
+	        if [ -n "$EDITOR" ]; then
+	                editor="$EDITOR"
+	        else
+	                echo Your preferred text editor:  
+	                read editor
+	        fi
+	        echo $editor >> $HOME/.config/specy/config
+	fi
+
+
         echo -e "Show user? [y/n]"
         read choice
         echo
@@ -254,39 +289,6 @@ config(){
         echo -n ")" >> $HOME/.config/specy/output
         
         
-        if  [ -f "$HOME/.config/specy/config" ]; then
-        	gpu=$(sed '1q;d' $HOME/.config/specy/config)
-
-	        if [ -n "$EDITOR" ]; then
-	                editor="$EDITOR"
-	        else
-	                editor="$(sed '2q;d' $HOME/.config/specy/config)"
-	        fi
-	
-	else 
-	        echo
-	        echo -e "specy; an Arch Linux system command line description output tool\n\n"
-		echo -e "Copyright (C) 2014-2015 Max Weis\n"
-		echo -e "This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version.\n"
-		echo -e "This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.\n"
-	
-	        if ! [ -d "$HOME/.config/specy" ]; then
-	                mkdir $HOME/.config/specy
-	        fi
-	
-	        echo Your GPU model:  
-	        read gpu
-	        echo $gpu >> $HOME/.config/specy/config
-	        echo 
-	
-	        if [ -n "$EDITOR" ]; then
-	                editor="$EDITOR"
-	        else
-	                echo Your preferred text editor:  
-	                read editor
-	        fi
-	        echo $editor >> $HOME/.config/specy/config
-	fi
 	echo Finished configuration.
 	echo -e "Reconfigure by passing the -r or --reconfigure argument\n"
 }
