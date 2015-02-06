@@ -382,10 +382,12 @@ used_ram="$(free -h | awk '/Mem/ {print $3}')"
 percent_ram="$(free | awk '/Mem/ {printf("%d%%", $3 / $2 * 100)}')"
 ram="$used_ram / $total_ram ($percent_ram)"
 
-total_swap="$(free -h | awk '/Swap/ {print $2}')"
-used_swap="$(free -h | awk '/Swap/ {print $3}')"
-percent_swap="$(free | awk '/Swap/ {printf("%d%%", $3 / $2 * 100)}')"
-swap="$used_swap / $total_swap ($percent_swap)"
+if [ "$(free | awk '/Swap/ {print $1}')" != "0B" ]; then
+	total_swap="$(free -h | awk '/Swap/ {print $2}')"
+	used_swap="$(free -h | awk '/Swap/ {print $3}')"
+	percent_swap="$(free | awk '/Swap/ {printf("%d%%", $3 / $2 * 100)}')"
+	swap="$used_swap / $total_swap ($percent_swap)"
+fi
 
 getwm
 window_manager="$WM"
