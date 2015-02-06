@@ -85,6 +85,7 @@ getwm(){ #inspired by screenFetch (see above for copyright detail)
         fi
 }
 
+
 declare -a field1
 declare -a field2
 n=0
@@ -282,6 +283,7 @@ config(){
 	echo -e "Reconfigure by passing the -r or --reconfigure argument\n"
 }
 
+
 #COLOR DEFINITIONS
 intense_blue='\e[0;94m'
 blue='\e[0;34m'
@@ -301,6 +303,7 @@ light_red='\e[1;31m'
 light_purple='\e[1;31m'
 yellow='\e[1;31m'
 no_color='\e[0m'
+
 
 if ! [ -f "$HOME/.config/specy/output" ]; then
         config
@@ -361,6 +364,9 @@ else
         width_limit=$(( $cpu_text_width + 47 ))
 fi
 
+
+# field1 and field2 arrays sourced from $HOME/.config/specy/output
+#to be outputed next to logo
 line1A="${field1[0]} "
 line1B="${!field2[0]}"
 line2A="${field1[1]} "
@@ -393,6 +399,7 @@ line15A="${field1[14]}"
 line15B="${!field2[14]} "
 line16A="${field1[15]}"
 line16B="${!field2[16]} "
+
 
 # arch_logo(primary_color, secondary_color, primary_text_color, secondary_text_color)
 arch_logo(){
@@ -442,6 +449,7 @@ arch_logo(){
     echo
 }
 
+
 arch_logo_minimal(){
     clear
     echo
@@ -488,6 +496,7 @@ arch_logo_minimal(){
     echo -e  $no_color
     echo
 }
+
 
 if [ "$1" = "--reconfigure" ] || [ "$1" = "-r" ]; then
         if [ -d "$HOME/.config/specy" ]; then
