@@ -181,6 +181,43 @@ config(){
         fi
 
 
+	echo -e "Show root partition details? [y/n]"
+	read choice
+	echo
+
+        if [ $choice = "Y" ] || [ $choice = "y" ]; then
+		field1[n]="Root: "
+		field2[n]="root"
+		((n++))
+	fi
+
+
+	if [ "$(df /)" != "$(df /home)" ]; then
+		echo -e "Show home partition details? [y/n]"
+		read choice
+		echo
+
+		if [ $choice = "Y" ] || [ $choice = "y" ]; then
+			field1[n]="Home: "
+			field2[n]="home"
+			((n++))
+		fi
+	fi
+
+
+	if [ "$(df /)" != "$(df /boot)" ]; then
+		echo -e "Show boot partition details? [y/n]"
+		read choice
+		echo
+
+		if [ $choice = "Y" ] || [ $choice = "y" ]; then
+			field1[n]="Boot\ Partition: "
+			field2[n]="boot"
+			((n++))
+		fi
+	fi
+
+
         echo -e "Show RAM? [y/n]"
         read choice
         echo
@@ -323,6 +360,10 @@ timeup=${timeup:3}
 cpu=$(grep "model name" /proc/cpuinfo | cut -f2 -d: | tail -1)
 cpu=${cpu:1}
 cpu=$(echo $cpu | tr '\n' ' ')
+
+root="$(df / -hT | awk '/dev/ {printf("%s / %s (%s) (%s)", $4, $3, $6, $2)}')"
+home="$(df /home -hT | awk '/dev/ {printf("%s / %s (%s) (%s)", $4, $3, $6, $2)}')"
+boot="$(df /boot -hT | awk '/dev/ {printf("%s / %s (%s) (%s)", $4, $3, $6, $2)}')"
 
 gpu=$(sed '1q;d' $HOME/.config/specy/config)
 
