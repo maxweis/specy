@@ -562,7 +562,7 @@ if [ "$1" = "--reconfigure" ] || [ "$1" = "-r" ]; then
         if [ -d "$HOME/.config/specy" ]; then
                 rm $HOME/.config/specy/*
                 echo Configuration reset
-                ./$0
+                $0
         fi
 
 elif [ "$1" = "--dimensions" ] || [ "$1" = "-d" ]; then
