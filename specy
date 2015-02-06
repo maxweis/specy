@@ -90,16 +90,7 @@ declare -a field2
 n=0
 
 config(){
-        if  [ -f "$HOME/.config/specy/config" ]; then
-        	gpu=$(sed '1q;d' $HOME/.config/specy/config)
-
-	        if [ -n "$EDITOR" ]; then
-	                editor="$EDITOR"
-	        else
-	                editor="$(sed '2q;d' $HOME/.config/specy/config)"
-	        fi
-	
-	else 
+        if ! [ -f "$HOME/.config/specy/config" ]; then
 	        echo
 	        echo -e "specy; an Arch Linux system command line description output tool\n\n"
 		echo -e "Copyright (C) 2014-2015 Max Weis\n"
@@ -115,9 +106,7 @@ config(){
 	        echo $gpu >> $HOME/.config/specy/config
 	        echo 
 	
-	        if [ -n "$EDITOR" ]; then
-	                editor="$EDITOR"
-	        else
+	        if ! [ -n "$EDITOR" ]; then
 	                echo Your preferred text editor:  
 	                read editor
 	        fi
@@ -332,6 +321,8 @@ cpu=$(grep "model name" /proc/cpuinfo | cut -f2 -d: | tail -1)
 cpu=${cpu:1}
 cpu=$(echo $cpu | tr '\n' ' ')
 
+gpu=$(sed '1q;d' $HOME/.config/specy/config)
+
 total_ram="$(free -h | awk '/Mem/ {print $2}')"
 used_ram="$(free -h | awk '/Mem/ {print $3}')"
 percent_ram="$(free | awk '/Mem/ {printf("%d%%", $3/$2 * 100)}')"
@@ -349,6 +340,13 @@ fi
 shell="${SHELL##*/}"
 
 packages="$(pacman -Q | wc -l)"
+
+if [ -n "$EDITOR" ]; then
+	editor="$EDITOR"
+else
+	editor="$(sed '2q;d' $HOME/.config/specy/config)"
+fi
+
 
 gpu_text_width=${#gpu}
 cpu_text_width=${#cpu}
