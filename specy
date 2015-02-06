@@ -362,7 +362,7 @@ source $HOME/.config/specy/output
 
 user=$(whoami)@$(hostname)
 
-os="Arch Linux"
+os="Arch Linux $(uname -m)"
 
 kernel=$(uname -r)
 
