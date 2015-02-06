@@ -77,7 +77,7 @@ getwm(){ #inspired by screenFetch (see above for copyright detail)
                         fi
 			
 			if [ -n "$WM" ]; then
-		break
+				break
 			fi
                 done
 	else
