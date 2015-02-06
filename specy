@@ -20,9 +20,6 @@
 #GNU General Public License for more details.
 
 
-#TODO:
-#add drive details including fs, percentage used, size, usage, and mount point (in bash)
-
 
 wm_names=( gnome-shell fluxbox openbox blackbox xfwm4 metacity kwin icewm pekwm fvwm dwm awesome wmaker stumpwm musca xmonad i3 ratpoison scrotwm spectrwm wmfs wmii beryl subtle e16 enlightenment sawfish emerald monsterwm dminiwm compiz Finder herbstluftwm notion bspwm cinnamon 2bwm echinus swm budgie-wm )
 
@@ -229,6 +226,19 @@ config(){
         fi
 
 
+	if [ "$(free | awk '/Swap/ {print $2}')" != "0B" ]; then
+		echo -e "Show swap partition? [y/n]"
+		read choice
+		echo
+
+		if [ $choice = "Y" ] || [ $choice = "y" ]; then
+			field1[n]="Swap:\ "
+			field2[n]="swap"
+			((n++))
+		fi
+	fi
+
+
         echo -e "Show display environment? [y/n]"
         read choice
         echo
@@ -369,8 +379,13 @@ gpu=$(sed '1q;d' $HOME/.config/specy/config)
 
 total_ram="$(free -h | awk '/Mem/ {print $2}')"
 used_ram="$(free -h | awk '/Mem/ {print $3}')"
-percent_ram="$(free | awk '/Mem/ {printf("%d%%", $3/$2 * 100)}')"
+percent_ram="$(free | awk '/Mem/ {printf("%d%%", $3 / $2 * 100)}')"
 ram="$used_ram / $total_ram ($percent_ram)"
+
+total_swap="$(free -h | awk '/Swap/ {print $2}')"
+used_swap="$(free -h | awk '/Swap/ {print $3}')"
+percent_swap="$(free | awk '/Swap/ {printf("%d%%", $3 / $2 * 100)}')"
+swap="$used_swap / $total_swap ($percent_swap)"
 
 getwm
 window_manager="$WM"
@@ -439,7 +454,9 @@ line14B="${!field2[13]}"
 line15A="${field1[14]}"
 line15B="${!field2[14]}"
 line16A="${field1[15]}"
-line16B="${!field2[16]}"
+line16B="${!field2[15]}"
+line17A="${field1[16]}"
+line17B="${!field2[16]}"
 
 
 # arch_logo(primary_color, secondary_color, primary_text_color, secondary_text_color)
@@ -481,9 +498,9 @@ arch_logo(){
     echo
     echo -e -n "   /$1#$2####                      ####$1#$2\    $3$line15A$4$line15B$2"  
     echo
-    echo -e -n "   $2###                            ###   "  
+    echo -e -n "   $2###                            ###    $3$line16A$4$line16B$2"  
     echo
-    echo -e -n "  $2##                                ##  " 
+    echo -e -n "  $2##                                ##   $3$line17A$4$line17B$2" 
     echo
     echo -e -n " $2#                                    # " 
     echo -e  $no_color
