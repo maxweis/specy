@@ -331,8 +331,8 @@ ram="$used_ram / $total_ram ($percent_ram)"
 getwm
 window_manager="$WM"
 
-if ! [ -n $XDG_CURRENT_DESKTOP ]; then
-display_environment=$XDG_CURRENT_DESKTOP
+if [ -n $XDG_CURRENT_DESKTOP ]; then
+	display_environment=$XDG_CURRENT_DESKTOP
 else
 	display_environment="None"
 fi
