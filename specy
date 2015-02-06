@@ -28,11 +28,11 @@ wm_names=( gnome-shell fluxbox openbox blackbox xfwm4 metacity kwin icewm pekwm 
 
 getwm(){ #inspired by screenFetch (see above for copyright detail)
         if [ -n "$DISPLAY" ]; then
+		WM="None (virtual terminal)"
                 for each in "${wm_names[@]}"; do
                         PID="$(pgrep -f $each)"
                         if [ "$PID" ]; then
                                 case $each in
-					'*') WM="None (virtual terminal)";;
                                         '2bwm') WM="2bwm";;
                                         'awesome') WM="Awesome";;
                                         'beryl') WM="Beryl";;
@@ -76,7 +76,7 @@ getwm(){ #inspired by screenFetch (see above for copyright detail)
                                 esac
                         fi
 			
-			if [ -n "$WM" ]; then
+			if [ "$WM" != "None (virtual terminal)" ]; then
 				break
 			fi
                 done
