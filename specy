@@ -120,7 +120,7 @@ config(){
         echo
 
         if [ $choice = "Y" ] || [ $choice = "y" ]; then
-                field1[n]="User: "
+                field1[n]="User:\ "
                 field2[n]="user"
                 ((n++))
         fi
@@ -131,7 +131,7 @@ config(){
         echo
 
         if [ $choice = "Y" ] || [ $choice = "y" ]; then
-                field1[n]="OS: "
+                field1[n]="OS:\ "
                 field2[n]="os"
                 ((n++))
         fi
@@ -142,7 +142,7 @@ config(){
         echo
 
         if [ $choice = "Y" ] || [ $choice = "y" ]; then
-                field1[n]="Uptime: "
+                field1[n]="Uptime:\ "
                 field2[n]="timeup"
                 ((n++))
         fi
@@ -153,7 +153,7 @@ config(){
         echo
 
         if [ $choice = "Y" ] || [ $choice = "y" ]; then
-                field1[n]="Kernel: "
+                field1[n]="Kernel:\ "
                 field2[n]="kernel"
                 ((n++))
         fi
@@ -164,7 +164,7 @@ config(){
         echo
 
         if [ $choice = "Y" ] || [ $choice = "y" ]; then
-                field1[n]="CPU: "
+                field1[n]="CPU:\ "
                 field2[n]="cpu"
                 ((n++))
         fi
@@ -175,7 +175,7 @@ config(){
         echo
 
         if [ $choice = "Y" ] || [ $choice = "y" ]; then
-                field1[n]="GPU: "
+                field1[n]="GPU:\ "
                 field2[n]="gpu"
                 ((n++))
         fi
@@ -186,7 +186,7 @@ config(){
 	echo
 
         if [ $choice = "Y" ] || [ $choice = "y" ]; then
-		field1[n]="Root: "
+		field1[n]="Root:\ "
 		field2[n]="root"
 		((n++))
 	fi
@@ -198,7 +198,7 @@ config(){
 		echo
 
 		if [ $choice = "Y" ] || [ $choice = "y" ]; then
-			field1[n]="Home: "
+			field1[n]="Home:\ "
 			field2[n]="home"
 			((n++))
 		fi
@@ -211,7 +211,7 @@ config(){
 		echo
 
 		if [ $choice = "Y" ] || [ $choice = "y" ]; then
-			field1[n]="Boot: "
+			field1[n]="Boot:\ "
 			field2[n]="boot"
 			((n++))
 		fi
@@ -223,7 +223,7 @@ config(){
         echo
 
         if [ $choice = "Y" ] || [ $choice = "y" ]; then
-                field1[n]="RAM: "
+                field1[n]="RAM:\ "
                 field2[n]="ram"
                 ((n++))
         fi
@@ -234,7 +234,7 @@ config(){
         echo
 
         if [ $choice = "Y" ] || [ $choice = "y" ]; then
-                field1[n]="Display\ Environment: "
+                field1[n]="Display\ Environment:\ "
                 field2[n]="display_environment"
                 ((n++))
         fi
@@ -245,7 +245,7 @@ config(){
         echo
 
         if [ $choice = "Y" ] || [ $choice = "y" ]; then
-                field1[n]="Window\ Manager: "
+                field1[n]="Window\ Manager:\ "
                 field2[n]="window_manager"
                 ((n++))
         fi
@@ -256,7 +256,7 @@ config(){
         echo
 
         if [ $choice = "Y" ] || [ $choice = "y" ]; then
-                field1[n]="Terminal: "
+                field1[n]="Terminal:\ "
                 field2[n]="TERM"
                 ((n++))
         fi
@@ -267,7 +267,7 @@ config(){
         echo
 
         if [ $choice = "Y" ] || [ $choice = "y" ]; then
-                field1[n]="Shell: "
+                field1[n]="Shell:\ "
                 field2[n]="shell"
                 ((n++))
         fi
@@ -278,7 +278,7 @@ config(){
         echo
 
         if [ $choice = "Y" ] || [ $choice = "y" ]; then
-                field1[n]="Packages: "
+                field1[n]="Packages:\ "
                 field2[n]="packages"
                 ((n++))
         fi
