@@ -250,7 +250,7 @@ config(){
         read choice
 
         if [ $choice = "Y" ] || [ $choice = "y" ]; then
-                field1[n]="Editor: "
+                field1[n]="Editor:\ "
                 field2[n]="editor"
                 ((n++))
         fi
