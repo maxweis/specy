@@ -234,7 +234,7 @@ config(){
         echo
 
         if [ $choice = "Y" ] || [ $choice = "y" ]; then
-                field1[n]="Display\ environment: "
+                field1[n]="Display\ Environment: "
                 field2[n]="display_environment"
                 ((n++))
         fi
@@ -245,7 +245,7 @@ config(){
         echo
 
         if [ $choice = "Y" ] || [ $choice = "y" ]; then
-                field1[n]="Window\ manager: "
+                field1[n]="Window\ Manager: "
                 field2[n]="window_manager"
                 ((n++))
         fi
