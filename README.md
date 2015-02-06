@@ -5,7 +5,7 @@ A program which displays your computer's specifications which was inspired by th
 - Adapt to size of terminal to show minimal or full display
 - Customizable colors through command arguments
 - Easily add new information to the output
-- Displays dynamically updating values including RAM, window manager, and packages installed
+- Displays dynamically updating values including drives, swap, RAM, window manager, and packages installed
 - Configure what is displayed upon execution
 
 ###Dependencies:
@@ -17,22 +17,20 @@ A program which displays your computer's specifications which was inspired by th
 ###Examples
 Maximized view:
 
-![img](https://farm8.staticflickr.com/7295/16412295802_3dcd77bbc2_n.jpg)
+![img](https://farm8.staticflickr.com/7366/16269250637_4cbb3207a1_o.png)
 
 Minimized view:
 
 ![img](https://farm9.staticflickr.com/8677/16411466791_903a7e78e5_n.jpg)
 
 ###Usage:
-    specy primary_logo_color secondary_logo_color primary_text_color secondary_text_color
+    specy [-r] [-d] primary_logo_color secondary_logo_color primary_text_color secondary_text_color
     
 The options for colors are intense_blue, blue, white, gray, dark_grey, light_blue, black, green, cyan, red, purple, brown, light_green, light_cyan, light_red, light_purple, yellow, and no_color
 
 
 ###Miscellaneous
 By default the config file is stored in ~/.config/specy/config
-
-Drive details are not included due to varying partition schemes
 
 You should run this program when your shell starts. To do so, you can add the command *specy* to your .bashrc, .zshrc, or other shell configuration file.
 
