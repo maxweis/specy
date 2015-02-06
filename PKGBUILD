@@ -18,5 +18,8 @@ source=('specy::git+https://github.com/maxweis/specy')
 package() {
 	cd "$srcdir/$pkgname"
 
+	if [ -d $HOME/.config/specy ]; then
+		rm $HOME/.config/specy -R
+	fi
 	install -D -m755 ./specy $pkgdir/usr/bin/specy 
 }
