@@ -211,7 +211,7 @@ config(){
 		echo
 
 		if [ $choice = "Y" ] || [ $choice = "y" ]; then
-			field1[n]="Boot\ Partition: "
+			field1[n]="Boot: "
 			field2[n]="boot"
 			((n++))
 		fi
