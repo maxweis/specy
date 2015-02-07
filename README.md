@@ -17,7 +17,7 @@ A program which displays your computer's specifications which was inspired by th
 ###Examples
 Maximized view:
 
-![img](https://farm8.staticflickr.com/7366/16269250637_4cbb3207a1_o.png)
+![img](https://farm9.staticflickr.com/8572/16459848051_39a320cb7e_o.png)
 
 Minimized view:
 

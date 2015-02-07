@@ -362,7 +362,7 @@ source $HOME/.config/specy/output
 
 user=$(whoami)@$(hostname)
 
-os="Arch Linux"
+os="Arch Linux $(uname -m)"
 
 kernel=$(uname -r)
 
@@ -468,45 +468,45 @@ arch_logo(){
     clear
     echo
     echo -e -n "$2"
-    echo -e -n "                   /\                    " 
+    echo -e -n "                                      " 
     echo
-    echo -e -n "                  /$1##$2\                   " 
+    echo -e -n "                  $1##                   " 
     echo
-    echo -e -n "                 /$1####$2\                  $3$line1A$4$line1B$2" 
+    echo -e -n "                 $1####                  $3$line1A$4$line1B$2" 
     echo
-    echo -e -n "                /$1######$2\                 $3$line2A$4$line2B$2"  
+    echo -e -n "                $1######                 $3$line2A$4$line2B$2"  
     echo
-    echo -e -n "               /$1########$2\                $3$line3A$4$line3B$2"   
+    echo -e -n "               $1########                $3$line3A$4$line3B$2"   
     echo
-    echo -e -n "               \\\\$1#########$2\               $3$line4A$4$line4B$2"  
+    echo -e -n "              $1##########               $3$line4A$4$line4B$2"  
     echo
-    echo -e -n "             /\_\\\\$1#########$2\              $3$line5A$4$line5B$2"  
+    echo -e -n "             $1############              $3$line5A$4$line5B$2"  
     echo
-    echo -e -n "            /$1###$2\|$1#########$2\             $3$line6A$4$line6B$2"  
+    echo -e -n "            $1##############             $3$line6A$4$line6B$2"  
     echo
-    echo -e -n "           /$1################$2\            $3$line7A$4$line7B$2"  
+    echo -e -n "           $1################            $3$line7A$4$line7B$2"  
     echo
-    echo -e -n "          /$1######$2######$1###$2/\\\\$1#$2\           $3$line8A$4$line8B$2"  
+    echo -e -n "          $1######$2######$1######           $3$line8A$4$line8B$2"  
     echo
-    echo -e -n "         /$1#####$2###    ###$1#$2\ \\\\$1#$2\          $3$line9A$4$line9B$2"  
+    echo -e -n "         $1#####$2###    ###$1#####          $3$line9A$4$line9B$2"  
     echo
-    echo -e -n "        /$1#####$2##        ##$1##$2\___         $3$line10A$4$line10B$2"  
+    echo -e -n "        $1#####$2##        ##$1#####         $3$line10A$4$line10B$2"  
     echo
-    echo -e -n "       /$1#####$2##          ##$1#####$2\        $3$line11A$4$line11B$2"  
+    echo -e -n "       $1#####$2##          ##$1#####        $3$line11A$4$line11B$2"  
     echo
-    echo -e -n "      /$1######$2##          ##$1######$2\       $3$line12A$4$line12B$2"  
+    echo -e -n "      $1######$2##          ##$1######       $3$line12A$4$line12B$2"  
     echo
-    echo -e -n "     /$1######$2####        ####$1######$2\      $3$line13A$4$line13B$2"  
+    echo -e -n "     $1######$2####        ####$1######      $3$line13A$4$line13B$2"  
     echo
-    echo -e -n "    /$1###$2#####              #####$1###$2\     $3$line14A$4$line14B$2"  
+    echo -e -n "    $1###$2#####              #####$1###     $3$line14A$4$line14B$2"  
     echo
-    echo -e -n "   /$1#$2####                      ####$1#$2\    $3$line15A$4$line15B$2"  
+    echo -e -n "   $1#$2####                      ####$1#    $3$line15A$4$line15B$2"  
     echo
-    echo -e -n "   $2###                            ###    $3$line16A$4$line16B$2"  
+    echo -e -n "   $2##                            ##    $3$line16A$4$line16B$2"  
     echo
-    echo -e -n "  $2##                                ##   $3$line17A$4$line17B$2" 
+    echo -e -n "  $2#                                #   $3$line17A$4$line17B$2" 
     echo
-    echo -e -n " $2#                                    # " 
+    echo -e -n " $2                                     " 
     echo -e  $no_color
     echo
 }
@@ -516,45 +516,44 @@ arch_logo_minimal(){
     clear
     echo
     echo -e -n "$2"
-    echo -e -n "                   /\ " 
     echo
-    echo -e -n "                  /$1##$2\ " 
+    echo -e -n "                  $1##" 
     echo
-    echo -e -n "                 /$1####$2\ " 
+    echo -e -n "                 $1####" 
     echo
-    echo -e -n "                /$1######$2\ "  
+    echo -e -n "                $1######"  
     echo
-    echo -e -n "               /$1########$2\ "   
+    echo -e -n "               $1########"   
     echo
-    echo -e -n "               \\\\$1#########$2\ "  
+    echo -e -n "              $1##########"  
     echo
-    echo -e -n "             /\_\\\\$1#########$2\ "  
+    echo -e -n "             $1############"  
     echo
-    echo -e -n "            /$1###$2\|$1#########$2\ "  
+    echo -e -n "            $1##############"  
     echo
-    echo -e -n "           /$1################$2\ "  
+    echo -e -n "           $1################"  
     echo
-    echo -e -n "          /$1######$2######$1###$2/\\\\$1#$2\ "  
+    echo -e -n "          $1######$2######$1######"  
     echo
-    echo -e -n "         /$1#####$2###    ###$1#$2\ \\\\$1#$2\ "  
+    echo -e -n "         $1#####$2###    ###$1#####"  
     echo
-    echo -e -n "        /$1#####$2##        ##$1##$2\___"  
+    echo -e -n "        $1#####$2##        ##$1#####"  
     echo
-    echo -e -n "       /$1#####$2##          ##$1#####$2\ "  
+    echo -e -n "       $1#####$2##          ##$1#####"  
     echo
-    echo -e -n "      /$1######$2##          ##$1######$2\ "  
+    echo -e -n "      $1######$2##          ##$1######"  
     echo
-    echo -e -n "     /$1######$2####        ####$1######$2\ "  
+    echo -e -n "     $1######$2####        ####$1######"  
     echo
-    echo -e -n "    /$1###$2#####              #####$1###$2\ "  
+    echo -e -n "    $1###$2#####              #####$1###"  
     echo
-    echo -e -n "   /$1#$2####                      ####$1#$2\ "  
+    echo -e -n "   $1#$2####                      ####$1#"  
     echo
-    echo -e -n "   $2###                            ###"  
+    echo -e -n "   $2##                            ##"  
     echo
-    echo -e -n "  $2##                                ##" 
+    echo -e -n "  $2#                                #" 
     echo
-    echo -e -n " $2#                                    #" 
+    echo -e -n " $2                                     " 
     echo -e  $no_color
     echo
 }
