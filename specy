@@ -415,13 +415,13 @@ gpu_text_width=${#gpu}
 cpu_text_width=${#cpu}
 terminal_height=$(tput lines)
 terminal_width=$(tput cols)
-height_limit=24
+height_limit=23
 
 # determining terminal width from longest strings
 if [ $gpu_text_width -ge  $cpu_text_width ]; then
-        width_limit=$(( $gpu_text_width + 47 ))
+        width_limit=$(( $gpu_text_width + 44 ))
 else
-        width_limit=$(( $cpu_text_width + 47 ))
+        width_limit=$(( $cpu_text_width + 44 ))
 fi
 
 
@@ -586,7 +586,7 @@ elif [ "$terminal_width" -ge "$width_limit" ] && [ "$terminal_height" -ge "$heig
                 arch_logo $blue $light_blue $light_blue $white
         fi
 
-elif [ "$terminal_width" -ge 40 ] && [ "$terminal_height" -ge 23 ]; then
+elif [ "$terminal_width" -ge 36 ] && [ "$terminal_height" -ge 23 ]; then
         if [ $# = 4 ]; then
                 arch_logo_minimal ${!1} ${!2} ${!3} ${!4} 
         else
