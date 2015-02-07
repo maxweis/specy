@@ -21,7 +21,7 @@ Maximized view:
 
 Minimized view:
 
-![img](https://farm9.staticflickr.com/8677/16411466791_903a7e78e5_n.jpg)
+![img](https://farm8.staticflickr.com/7377/16461582945_8b7e908d49_o.png)
 
 ###Usage:
     specy [-r] [-d] primary_logo_color secondary_logo_color primary_text_color secondary_text_color
