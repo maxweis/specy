@@ -2,7 +2,7 @@
 
 pkgname=specy
 pkgver=1.5
-pkgrel=1
+pkgrel=2
 pkgdesc="An Arch Linux system command line description output tool"
 
 arch=('any')
