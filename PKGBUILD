@@ -1,8 +1,8 @@
 #Maintainer: Maxon Weis <maxrobweis@gmail.com>
 
 pkgname=specy
-pkgver=1.5
-pkgrel=2
+pkgver=1.6
+pkgrel=1
 pkgdesc="An Arch Linux system command line description output tool"
 
 arch=('any')
