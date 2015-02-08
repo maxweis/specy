@@ -408,6 +408,7 @@ else
 	editor="$(sed '2q;d' $HOME/.config/specy/config)"
 fi
 
+source $HOME/.config/specy/output
 
 gpu_text_width=${#gpu}
 cpu_text_width=${#cpu}
@@ -422,7 +423,6 @@ else
         width_limit=$(( $cpu_text_width + 44 ))
 fi
 
-source $HOME/.config/specy/output
 
 # field1 and field2 arrays sourced from $HOME/.config/specy/output
 #to be outputed next to logo
