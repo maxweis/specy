@@ -358,8 +358,6 @@ if ! [ -f "$HOME/.config/specy/output" ]; then
         config
 fi
 
-source $HOME/.config/specy/output
-
 user=$(whoami)@$(hostname)
 
 os="Arch Linux $(uname -m)"
@@ -424,6 +422,7 @@ else
         width_limit=$(( $cpu_text_width + 44 ))
 fi
 
+source $HOME/.config/specy/output
 
 # field1 and field2 arrays sourced from $HOME/.config/specy/output
 #to be outputed next to logo
